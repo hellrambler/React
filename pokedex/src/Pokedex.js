@@ -5,17 +5,16 @@ import "./Pokedex.css";
 class Pokedex extends Component {
 
     render() {
+        let title;
+        if (this.props.isWinner) {
+            title = <h2 className='Pokedex-winner'>Winning hand</h2>;
+        } else {
+            title = <h2 className='Pokedex-loser'>Losing hand</h2>;
+        }
         return (
             <div className='Pokedex'>
-                <h2>Pokedex #{this.props.group}</h2>
-                <p>This group got {this.props.exp} points</p>
-                <p>
-                    {
-                        this.props.isWinner
-                        ? "Winner" 
-                        : "Loser"
-                    }
-                </p>
+                {title}
+                <h4>This group got {this.props.exp} points</h4>
                 <div className='Pokedex-cards'>
                     {this.props.pokemon.map((p) =>(
                         <Pokecard id={p.id} name={p.name} type={p.type} exp={p.base_experience} />

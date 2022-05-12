@@ -2,14 +2,23 @@ import React, { Component } from "react";
 import "./Die.css";
 
 class Die extends Component {
+
+  handleToggle = () => {
+    this.props.handleClick(this.props.idx);
+  }
+
   render() {
+
+    const dieName = `Die ${this.props.locked && "Die-locked"}`
+
+    const faClass = `fas fa-dice-${this.props.name}`
     return (
       <button
-        className={"Die"}
+        className={dieName}
         style={{ backgroundColor: this.props.locked ? "grey" : "black" }}
-        onClick={this.props.handleClick}
+        onClick={this.handleToggle}
       >
-        {this.props.val}
+        <i className={faClass} />
       </button>
     );
   }

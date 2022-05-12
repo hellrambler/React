@@ -6,6 +6,7 @@ import { ones, twos, threes, fours, fives, sixes, threeOfKind, fourOfKind, fullH
 
 class ScoreTable extends Component {
 
+
   render() {
     const { scores, doScore } = this.props;
 

@@ -16,10 +16,12 @@ class Dice extends Component {
       {this.props.dice.map((d, idx) =>
         <Die handleClick={this.props.handleClick}
           val={d}
-          name={this.props[d]}
+          name={this.props[(d === undefined ? 1 : d)]}
           locked={this.props.locked[idx]}
           idx={idx}
-          key={idx} />
+          key={idx}
+          rolling={this.props.rolling}
+        />
       )}
     </div>
   }

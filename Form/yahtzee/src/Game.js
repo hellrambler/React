@@ -63,7 +63,7 @@ class Game extends Component {
 
   toggleLocked(idx) {
     // toggle whether idx is in locked or not
-    if (this.state.rollsLeft > 0) {
+    if (this.state.rollsLeft > 0 && !this.state.rolling) {
       this.setState(st => ({
         locked: [
           ...st.locked.slice(0, idx),
@@ -82,8 +82,18 @@ class Game extends Component {
         rollsLeft: NUM_ROLLS,
         locked: Array(NUM_DICE).fill(false)
       }));
-      this.roll();
+      this.animateRoll();
     }
+  }
+
+  displayRollInfo = () => {
+    const messages = [
+      "0 Rolls Left",
+      "1 Roll Left",
+      "2 Rolls Left",
+      "Starting Round"
+    ]
+    return messages[this.state.rollsLeft];
   }
 
   render() {
@@ -102,10 +112,12 @@ class Game extends Component {
             <div className='Game-button-wrapper'>
               <button
                 className='Game-reroll'
-                disabled={this.state.locked.every(x => x)}
+                disabled={this.state.locked.every(x => x) || this.state.rolling}
                 onClick={this.animateRoll}
               >
-                {this.state.rollsLeft} Rerolls Left
+                {this.state.rolling
+                  ? "Rolling..."
+                  : this.displayRollInfo()}
               </button>
             </div>
           </section>

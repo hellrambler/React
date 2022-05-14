@@ -9,7 +9,7 @@ class Die extends Component {
 
   render() {
 
-    const dieName = `Die ${this.props.locked && "Die-locked"} ${this.props.rolling && "Die-rolling"}  fa-solid fa-5x fa-dice-${this.props.name}`
+    const dieName = `Die ${this.props.locked && "Die-locked"} ${this.props.rolling && !this.props.locked && "Die-rolling"}  fa-solid fa-5x fa-dice-${this.props.name}`
     return (
       <i
         className={dieName}

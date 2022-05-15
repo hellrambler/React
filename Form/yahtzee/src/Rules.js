@@ -60,7 +60,7 @@ class SumDistro extends Rule {
 class FullHouse extends Rule {
   evalRoll = dice => {
     const counter = this.freq(dice);
-    return counter.length == 2 && counter[0] >= 2 && counter[1] >= 2 ? this.score : 0;
+    return counter.length === 2 && counter[0] >= 2 && counter[1] >= 2 ? this.score : 0;
   }
 }
 

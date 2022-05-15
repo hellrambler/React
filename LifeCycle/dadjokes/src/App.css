@@ -1,0 +1,16 @@
+.App {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-family: 'Truculenta', sans-serif;
+  font-weight: 300;
+  color: azure;
+  background: rgb(2, 0, 36);
+  background:
+    linear-gradient(45deg,
+      rgba(2, 0, 36, 1) 0%,
+      rgba(9, 9, 121, 1) 40%,
+      rgba(182, 144, 5, 1) 60%,
+      rgba(255, 192, 0, 1) 100%);
+}

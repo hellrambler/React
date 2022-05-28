@@ -1,14 +1,18 @@
 import './App.css';
 import Navbar from './Navbar';
 import Form from './Form';
+import PageContent from './PageContent';
+import { ThemeProvider } from "./contexts/ThemeContext"
 
 function App() {
 
   return (
-    <>
-      <Navbar />
-      <Form />
-    </>
+    <ThemeProvider>
+      <PageContent>
+        <Navbar />
+        <Form />
+      </PageContent>
+    </ThemeProvider>
   );
 }
 
